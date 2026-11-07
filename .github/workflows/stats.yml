@@ -1,0 +1,36 @@
+name: Profile stats
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/scripts/stats.mjs', '.github/workflows/stats.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-stats
+  cancel-in-progress: true
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generate cards
+        run: node .github/scripts/stats.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit if changed
+        run: |
+          git add assets/stats.svg assets/langs.svg assets/streak.svg
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          git -c user.name='github-actions[bot]' -c user.email='41898299+github-actions[bot]@users.noreply.github.com' \
+            commit -m 'Update profile stats'
+          git push
