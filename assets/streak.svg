@@ -9,9 +9,9 @@
 <text x="84" y="142" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#c9d1d9" text-anchor="middle">Contributions</text>
 <text x="84" y="162" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10" fill="#8b949e" text-anchor="middle">25 Oct 2020 – now</text>
 <rect x="166" y="70" width="4" height="96" fill="#1f4e8c"/>
-<text x="248" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="34" font-weight="700" fill="#e6edf3" text-anchor="middle">2</text>
+<text x="248" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="34" font-weight="700" fill="#e6edf3" text-anchor="middle">0</text>
 <text x="248" y="142" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#6fa8ff" text-anchor="middle">Current streak</text>
-<text x="248" y="162" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10" fill="#8b949e" text-anchor="middle">days in a row</text>
+<text x="248" y="162" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10" fill="#8b949e" text-anchor="middle">start one today</text>
 <rect x="326" y="70" width="4" height="96" fill="#1f4e8c"/>
 <text x="412" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="26" font-weight="700" fill="#e6edf3" text-anchor="middle">10</text>
 <text x="412" y="142" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#c9d1d9" text-anchor="middle">Longest streak</text>
