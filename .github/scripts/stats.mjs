@@ -150,4 +150,19 @@ const stars_ = own.reduce((s, r) => s + r.stargazerCount, 0);
   writeFileSync(`${OUT}/streak.svg`, frame(496, 210, 'Contribution streak', body, 29));
 }
 
+// ---- site.json: data for the personal site, so it doesn't hit the unauthenticated API rate limit.
+{
+  const rest = async (path) => {
+    const res = await fetch(`https://api.github.com${path}`, { headers: { Authorization: `bearer ${TOKEN}`, 'User-Agent': 'profile-stats' } });
+    if (!res.ok) throw new Error(`${path}: ${res.status}`);
+    return res.json();
+  };
+  const [p, list] = await Promise.all([rest(`/users/${LOGIN}`), rest(`/users/${LOGIN}/repos?per_page=100&sort=pushed`)]);
+  const pick = (o, keys) => Object.fromEntries(keys.map((k) => [k, o[k]]));
+  writeFileSync(`${OUT}/site.json`, JSON.stringify({
+    profile: pick(p, ['public_repos', 'followers', 'created_at']),
+    repos: list.map((r) => pick(r, ['id', 'name', 'html_url', 'description', 'fork', 'language', 'stargazers_count', 'forks_count', 'pushed_at'])),
+  }) + '\n');
+}
+
 console.log({ stars: stars_, totalCommits, totalContrib, current, longest, repos: own.length });
